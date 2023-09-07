@@ -4,29 +4,38 @@
     <title>Arithmetic Worksheet Generator</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Viewport tag for responsiveness -->
 </head>
+
 <body>
-    <h1>Arithmetic Worksheet Generator</h1>
+    <header>
+    <center>
+        <h1>Arithmetic Worksheet Generator</h1>
+    </center>
+    </header>
 
-    <form id="worksheet-form">
-        <label for="numProblems">Number of problems:</label>
-        <input type="number" id="numProblems" min="1" value="10"><br>
+    <main class="container"> <!-- container for better control -->
+        <form id="worksheet-form">
+            <label for="numProblems">Number of problems:</label>
+            <input type="number" id="numProblems" min="1" value="10"><br>
 
-        <label for="operation">Operation:</label>
-        <select id="operation">
-            <option value="add">Addition</option>
-            <option value="subtract">Subtraction</option>
-            <option value="multiply">Multiplication</option>
-            <option value="divide">Division</option>
-        </select><br>
+            <label for="operation">Operation:</label>
+            <select id="operation">
+                <option value="add">Addition</option>
+                <option value="subtract">Subtraction</option>
+                <option value="multiply">Multiplication</option>
+                <option value="divide">Division</option>
+            </select><br>
 
-        <input type="button" value="Generate Worksheet" onclick="generateWorksheet()" />
-        <input type="button" value="Check Answers" onclick="checkAnswers()" id="checkButton" disabled />
-    </form>
-    </form>
+            <input type="button" value="Generate Worksheet" onclick="generateWorksheet()" />
+            <input type="button" value="Check Answers" onclick="checkAnswers()" id="checkButton" disabled />
+        </form>
 
-    <table id="worksheet"></table>
-    <div id="time"></div>
+        <div class="worksheet-container"> <!-- container for the worksheet -->
+            <table id="worksheet"></table>
+        </div>
+        <div id="time"></div>
+    </main>
 
     <script src="script.js"></script>
 </body>
