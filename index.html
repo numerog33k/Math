@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Arithmetic Worksheet Generator</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <meta charset="UTF-8">
+</head>
+<body>
+    <h1>Arithmetic Worksheet Generator</h1>
+
+    <form id="worksheet-form">
+        <label for="numProblems">Number of problems:</label>
+        <input type="number" id="numProblems" min="1" value="10"><br>
+
+        <label for="operation">Operation:</label>
+        <select id="operation">
+            <option value="add">Addition</option>
+            <option value="subtract">Subtraction</option>
+            <option value="multiply">Multiplication</option>
+            <option value="divide">Division</option>
+        </select><br>
+
+        <input type="button" value="Generate Worksheet" onclick="generateWorksheet()" />
+        <input type="button" value="Check Answers" onclick="checkAnswers()" id="checkButton" disabled />
+    </form>
+    </form>
+
+    <table id="worksheet"></table>
+    <div id="time"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
