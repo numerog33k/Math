@@ -15,7 +15,7 @@ header {
 }
 .logo {
   width: 20%; /* 20% of the parent element's width */
-  max-width: 10px; /* Maximum width */
+  max-width: 30px; /* Maximum width */
   height: auto; /* Maintain aspect ratio */
 }
 
