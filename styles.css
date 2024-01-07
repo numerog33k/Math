@@ -12,9 +12,11 @@ header {
   background-color: #fff;
 }
 .logo {
-  width: 20px; /* Placeholder size for the logo */
-  height: auto; 
+  width: 20%; /* 20% of the parent element's width */
+  max-width: 100px; /* Maximum width */
+  height: auto; /* Maintain aspect ratio */
 }
+
 .main-content {
   padding: 1em;
 }
