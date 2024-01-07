@@ -5,10 +5,12 @@ body {
 }
 header {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: center;/* Center items horizontally */
+  align-items: center;    /* Align items vertically */
   padding: 1em;
   background-color: #fff;
+}
+
 }
 .logo {
   width: 20%; /* 20% of the parent element's width */
