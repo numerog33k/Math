@@ -1,66 +1,44 @@
-/* Existing styles */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em;
+  background-color: #fff;
+}
+.logo {
+  width: 100px; /* Placeholder size for the logo */
+}
+.main-content {
+  padding: 1em;
+}
+.image-background {
+  background-color: #f4f4f4;
+  padding: 1em;
+  text-align: center;
+}
+.product {
+  border: 1px solid #ccc;
+  padding: 1em;
+  margin: 1em 0;
+  text-align: center;
+}
+.product img {
+  max-width: 100%;
+  height: auto;
+}
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 1em;
+  position: relative;
+  bottom: 0;
+  width: 100%;
 }
 
-form {
-    margin-bottom: 20px;
-}
 
-#worksheet {
-    border-top: 1px solid black;
-    margin-top: 20px;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-th, td {
-    border: 1px solid black;
-    text-align: left;
-    padding: 8px;
-}
-
-th {
-    background-color: #f2f2f2;
-}
-
-/* New styles for responsiveness */
-
-/* Container for center alignment and padding */
-.container {
-  max-width: 800px;
-  margin: auto;
-  padding: 20px;
-}
-
-/* Mobile-first design */
-.worksheet-container {
-  width: 100%;
-}
-
-/* Tablet and above */
-@media only screen and (min-width: 768px) {
-  .container {
-    padding: 40px;
-  }
-  .worksheet-container {
-    width: 80%;
-    margin: auto;
-  }
-}
-
-/* Desktop and above */
-@media only screen and (min-width: 1024px) {
-  .container {
-    padding: 60px;
-  }
-  .worksheet-container {
-    width: 70%;
-    margin: auto;
-  }
-}
