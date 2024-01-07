@@ -11,7 +11,8 @@ header {
   background-color: #fff;
 }
 .logo {
-  width: 50px; /* Placeholder size for the logo */
+  width: 20px; /* Placeholder size for the logo */
+  height: auto; 
 }
 .main-content {
   padding: 1em;
