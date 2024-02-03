@@ -1,90 +1,59 @@
-document.addEventListener("DOMContentLoaded", function() {
-    document.getElementById("worksheet-form").addEventListener("submit", function(event) {
-        event.preventDefault();
-        generateWorksheet();
-    });
-});
+const questionElement = document.getElementById('question');
+const answerElement = document.getElementById('answer');
+const submitButton = document.getElementById('submit');
+const timerElement = document.getElementById('timer');
+const timeRemainingElement = document.getElementById('time-remaining');
+const boxElement = document.querySelector('.box');
 
-let startTime, endTime;
+let timeRemaining = 60;
+let correctAnswers = 0;
 
-function getRandomNumber(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
+function generateQuestion() {
+    const num1 = Math.floor(Math.random() * 12) + 1;
+    const num2 = Math.floor(Math.random() * 12) + 1;
+    const answer = num1 * num2;
+
+    questionElement.textContent = `${num1} x ${num2} = ?`;
+    return answer;
 }
 
-// Function to check individual answers for immediate feedback
-function checkIndividualAnswer(inputElement, correctAnswer) {
-    const userAnswer = parseInt(inputElement.value, 10);
+function updateTimeRemaining() {
+    timeRemainingElement.textContent = timeRemaining;
+}
+
+function moveBox() {
+    boxElement.style.transform = `translateY(-${correctAnswers * 60}px)`;
+}
+
+submitButton.addEventListener('click', () => {
+    const userAnswer = parseInt(answerElement.value);
+    const correctAnswer = generateQuestion();
 
     if (userAnswer === correctAnswer) {
-        inputElement.style.backgroundColor = "#DFF2BF"; // light green
-    } else {
-        inputElement.style.backgroundColor = "#FFD2D2"; // light red
-    }
-}
+        correctAnswers++;
+        moveBox();
 
-function generateWorksheet() {
-    const numProblems = parseInt(document.getElementById("numProblems").value);
-    const operation = document.getElementById("operation").value;
-
-    let worksheetHtml = '<tr><th>Problem</th><th>Your Answer</th></tr>'; // Header Row
-
-    for (let i = 0; i < numProblems; i++) {
-        const num1 = getRandomNumber(1, 10);
-        const num2 = getRandomNumber(1, 10);
-
-        let problem = '';
-
-        switch(operation) {
-            case "add":
-                problem = `${num1} + ${num2}`;
-                break;
-            case "subtract":
-                problem = `${num1} - ${num2}`;
-                break;
-            case "multiply":
-                problem = `${num1} &times; ${num2}`;
-                break;
-            case "divide":
-                problem = `${num1 * num2} &divide; ${num2}`;
-                break;
-        }
-
-        worksheetHtml += `<tr><td data-answer="${eval(problem.replace('&times;', '*').replace('&divide;', '/'))}">${problem}</td><td><input type="number" class="answer"></td></tr>`;
-    }
-
-    document.getElementById("worksheet").innerHTML = worksheetHtml;
-
-    // Enable check button and start the timer
-    document.getElementById("checkButton").disabled = false;
-    startTime = new Date();
-
-    // Immediate feedback setup
-    const answerInputs = document.getElementsByClassName("answer");
-    for (let i = 0; i < answerInputs.length; i++) {
-        const correctAnswer = parseInt(answerInputs[i].parentNode.previousSibling.getAttribute("data-answer"), 10);
-
-        answerInputs[i].addEventListener("input", function() {
-            checkIndividualAnswer(answerInputs[i], correctAnswer);
-        });
-    }
-}
-
-function checkAnswers() {
-    const answers = document.getElementsByClassName("answer");
-    let correctCount = 0;
-
-    for(let i = 0; i < answers.length; i++) {
-        const userAnswer = parseInt(answers[i].value, 10);
-        const correctAnswer = parseInt(answers[i].parentNode.previousSibling.getAttribute("data-answer"), 10);
-
-        if(userAnswer === correctAnswer) {
-            correctCount++;
+        if (correctAnswers % 5 === 0) {
+            timeRemaining += 10;
+            updateTimeRemaining();
         }
     }
 
-    endTime = new Date();
-    const timeDiff = endTime - startTime;
-    const seconds = Math.floor(timeDiff / 1000);
+    if (timeRemaining <= 0) {
+        clearInterval(timerInterval);
+        alert('Game over!');
+    }
+});
 
-    document.getElementById("time").innerText = `You got ${correctCount} out of ${answers.length} correct! Time taken: ${seconds} seconds.`;
-}
+let timerInterval = setInterval(() => {
+    timeRemaining--;
+    updateTimeRemaining();
+
+    if (timeRemaining <= 0) {
+        clearInterval(timerInterval);
+        alert('Game over!');
+    }
+}, 1000);
+
+generateQuestion();
+updateTimeRemaining();
