@@ -30,13 +30,24 @@ submitButton.addEventListener('click', () => {
     const correctAnswer = generateQuestion();
 
     if (userAnswer === correctAnswer) {
+        // Correct answer
         correctAnswers++;
         moveBox();
+        answerElement.style.backgroundColor = 'green';
+        setTimeout(() => {
+            answerElement.style.backgroundColor = '';
+        }, 1000); // Reset the background color after 1 second
 
         if (correctAnswers % 5 === 0) {
             timeRemaining += 10;
             updateTimeRemaining();
         }
+    } else {
+        // Incorrect answer
+        answerElement.style.backgroundColor = 'red';
+        setTimeout(() => {
+            answerElement.style.backgroundColor = '';
+        }, 1000); // Reset the background color after 1 second
     }
 
     if (timeRemaining <= 0) {
