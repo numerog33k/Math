@@ -1,45 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kina Coffee Roasteria</title>
-<link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Multiplication Game</title>
 </head>
 <body>
-<header>
-  <img src="images/Kina.png" alt="Logo" class="logo">
-  <nav>
-    <a href="#main-content">About</a>
-      <a href="#products">Product</a>
-  </nav>
-</header>
-<main class="main-content">
-  <section>
-    <h1>Welcome to Our Specialty Coffee Shop</h1>
-    <p>Welcome to Kina Coffee Roasteria, where exceptional flavor meets unparalleled freshness. </p>
-    <p>In a world of mass-produced coffee, we stand apart by guaranteeing an organic, bespoke experience with every cup. Our secret? We don't just roast coffee; we artfully craft it to order.</p> 
-    <p>Each bean in your batch is selected and roasted only after you've made your choice, ensuring you enjoy the pinnacle of freshness. </p>
-    <p>This meticulous process guarantees a coffee experience that is not just fresh but also richly aromatic and brimming with complex flavors.</p>
-    <p>Taste the difference with Kina Coffee Roasteria - where every sip is a testament to quality and freshness.</p>
-  </section>
-  <section class="image-background">
-    <div class="text-block">Our Special Blend</div>
-    <img src="images/2.png" alt="Special Blend Coffee">
-  </section>
-</main>
-<section class="products">
-  <!-- Repeat this block for each product -->
-  <div class="product">
-    <img src="images/3.png" alt="Product Image">
-    <p>Product Description</p>
-  </div>
-  <!-- ... -->
-</section>
-<footer>
-  <p>&copy; 2024 Kina Coffee Roasteria</p>
-</footer>
+    <div class="game-container">
+        <div class="totem-pole">
+            <div class="box"></div>
+        </div>
+        <div class="question-container">
+            <p id="question"></p>
+            <input type="number" id="answer" placeholder="Enter your answer">
+            <button id="submit">Submit</button>
+        </div>
+        <div class="timer-container">
+            <p id="timer">Time: <span id="time-remaining">60</span> seconds</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
-
-
